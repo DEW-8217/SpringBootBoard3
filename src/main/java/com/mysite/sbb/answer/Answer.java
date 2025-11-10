@@ -13,6 +13,11 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Set;
+import jakarta.persistence.ManyToMany;
+
+import com.mysite.sbb.user.SiteUser;
+
 @Getter
 @Setter
 @Entity
@@ -29,4 +34,12 @@ public class Answer {
 	
 	@ManyToOne
 	private Question question;
+	
+	@ManyToOne
+	private SiteUser author;
+	
+	private LocalDateTime modifyDate;
+	
+	@ManyToMany
+    Set<SiteUser> voter;
 }
